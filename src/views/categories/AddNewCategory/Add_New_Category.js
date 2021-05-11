@@ -38,6 +38,10 @@ import CIcon from '@coreui/icons-react'
 import { DocsLink } from 'src/reusable'
 
 
+
+//EVERYTHING SIMILIAR TO EDIT_CATEGORY PAGE. REFER COMMENTS IN THAT FILE.
+
+
 export default class Add_New_Category extends Component {
 
     constructor() {
@@ -53,7 +57,6 @@ export default class Add_New_Category extends Component {
            invalid_image:''
         }
     }
-
 
     
     onChangeCategoryName(e) {

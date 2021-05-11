@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
-import {TiCancel,TiEdit} from 'react-icons/ti'
+import {TiEdit} from 'react-icons/ti'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -27,13 +27,12 @@ import {
 import { SelectColumnFilter } from 'src/views/filters';
 
 
-const App = () => {
+const All_Categories = () => {
   
   const [data, setData] = useState([]);
   
   useEffect(() => {
     const doFetch = async () => {
-      //const response = await fetch('https://randomuser.me/api/?results=100');
       const response = await fetch('http://127.0.0.1:8000/api/category');
       const body = await response.json();
       const data = body.results;
@@ -47,6 +46,7 @@ const App = () => {
   }, []);
 
 
+  //this function is used to show enable status ALERT BOX
 const submit2=(category_id)=> 
 {
   console.log(category_id);
@@ -68,6 +68,8 @@ const submit2=(category_id)=>
     });
 };
 
+
+  //this function is used to show disable status ALERT BOX
   const submit=(category_id)=>
   {
     confirmAlert({
@@ -89,7 +91,7 @@ const submit2=(category_id)=>
   };
   
 
-
+// this function is used call laraval api to disable and unable status when yes is clicked on ALERT
 const onClickDisable=(category_id)=>
 {
 axios.put('http://127.0.0.1:8000/api/category/updatestatus/'+category_id)
@@ -112,7 +114,7 @@ axios.put('http://127.0.0.1:8000/api/category/updatestatus/'+category_id)
 
 };
 
-
+//THIS IS SUB COMPONENT TO SHOW ADDITIONAL FIELDS WHICH CANNOT BE SHOWN IN TABLE ROW.
   const renderRowSubComponent = (row) => {
     const {
       category_status,
@@ -141,6 +143,8 @@ axios.put('http://127.0.0.1:8000/api/category/updatestatus/'+category_id)
     );
   };
 
+
+  //THIS CODE CONNECTS THE LARAVAL FIELDS TO REACT TABLE. HEADER MEANS WHAT FIELD NAME YOU WANT TO SEE,  ACCESSOR MEANS THE FIELD NAME YOU HAVE GIVEN IN DB 
   const columns = useMemo(
     () => [
       
@@ -219,13 +223,13 @@ axios.put('http://127.0.0.1:8000/api/category/updatestatus/'+category_id)
 
 
              
-                // we can also write code below as a separate React Component
-              
-        
+                
     ],
     []
   );
 
+  //THIS CODE CONNECTS MAIN COMPONENT TABLE CONTAINER WITH THIS PAGE.
+  
   return (
     <Container style={{ marginTop: 0,backgroundColor:'white' }}>
  
@@ -234,7 +238,7 @@ axios.put('http://127.0.0.1:8000/api/category/updatestatus/'+category_id)
   );
 };
 
-export default App;
+export default All_Categories;
 
 
 

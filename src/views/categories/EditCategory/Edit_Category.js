@@ -42,7 +42,6 @@ import { useParams } from 'react-router';
 
 export default class Edit_Category extends Component {
   
-
     constructor(props) {
         super(props);
         this.onChangeCategoryName = this.onChangeCategoryName.bind(this);
@@ -55,9 +54,9 @@ export default class Edit_Category extends Component {
            alert_message: ''
         }
     }
-//TO POPULATE TEXT INPUTS WITH VALUES FROM DATABASE
-   
 
+    //TO POPULATE TEXT INPUTS WITH VALUES FROM DATABASE
+   
         componentDidMount() {
           axios.get('http://127.0.0.1:8000/api/category/edit/'+this.props.match.params.id)
               .then(response => {
@@ -69,6 +68,7 @@ export default class Edit_Category extends Component {
               });
       }
 
+      //value from text input category_name is saved in state
     onChangeCategoryName(e) {
         this.setState({
             category_name: e.target.value
@@ -76,6 +76,8 @@ export default class Edit_Category extends Component {
         
     }
 
+
+      //value from file category_image is saved in state
     onChangeCategoryImage(file) {
       let image=file[0];
       this.setState({
@@ -95,7 +97,7 @@ return false;
     }
   
    
-  
+  //when submit buttons is clicked, all values from state is appened into form data and passed to API LARAVAL
 
     onSubmit(e) {
         e.preventDefault();
@@ -168,20 +170,6 @@ return false;
                 </CFormGroup>
               </CCol>
             </CRow>
-
-{/* 
- TEMPORARY CODE FOR IMAGE */}
-            {/* <CRow>
-              <CCol xs="12">
-                <CFormGroup>
-                  <CLabel htmlFor="name">Category</CLabel>
-                  <CInput  id="category_image"
-                            value={this.state.category_image}
-                            onChange={this.onChangeCategoryImage} 
-                            placeholder="Enter category image" required />
-                </CFormGroup>
-              </CCol>
-            </CRow> */}
 
 
 {/*      CODE FOR FILE UPLAOD         */}

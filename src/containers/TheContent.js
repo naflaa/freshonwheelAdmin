@@ -34,7 +34,7 @@ const TheContent = () => {
                     </CFade>
                   )} />
               )
-            })}
+            })}zzz
             <Redirect from="/" to="/dashboard" />
           </Switch>
         </Suspense>

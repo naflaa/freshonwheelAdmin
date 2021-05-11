@@ -27,6 +27,7 @@ const TheSidebar = () => {
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
       <CSidebarBrand className="d-md-down-none" to="/">
+       
         <CIcon
           className="c-sidebar-brand-full"
           name="logo-negative"
@@ -38,6 +39,12 @@ const TheSidebar = () => {
           height={35}
         />
       </CSidebarBrand>
+      <br/>
+      
+     <h4 align='center' className="c-sidebar-brand-full">FRESH ON WHEEL</h4> 
+     <h6 align='center' className="c-sidebar-brand-minimized">Admin Panel</h6>
+       <br/>
+     
       <CSidebarNav>
 
         <CCreateElement

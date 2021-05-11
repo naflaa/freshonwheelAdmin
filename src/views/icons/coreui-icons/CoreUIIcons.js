@@ -8,6 +8,7 @@ const CoreUIIcons = () => {
   return (
     <CCard>
       <CCardHeader>
+      <cil-arrow-bottom/>
         Free Icons / as CIcon{' '}
         <DocsLink href="https://github.com/coreui/coreui-icons" text="GitHub"/>
       </CCardHeader>

@@ -38,6 +38,26 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
+const AllCategories = React.lazy(()=>import('./views/categories/AllCategories'));
+const AddNewCategory = React.lazy(()=>import('./views/categories/AddNewCategory'));
+const EditCategory = React.lazy(()=>import('./views/categories/EditCategory/Edit_Category'));
+
+
+const AllProducts = React.lazy(()=>import('./views/products/AllProducts'));
+const AddNewProduct = React.lazy(()=>import('./views/products/AddNewProduct'));
+const EditProduct = React.lazy(()=>import('./views/products/EditProduct/Edit_Product'));
+
+
+
+const AllOrders = React.lazy(()=>import('./views/orders/AllOrders'));
+const ChangeMinValue = React.lazy(()=>import('./views/orders/ChangeMinValue'));
+
+const UpdateOrderStatus = React.lazy(()=>import('./views/orders/UpdateOrderStatus'));
+const EditOrder = React.lazy(()=>import('./views/orders/EditOrder/Edit_Order'));
+
+const ViewOrderDetails = React.lazy(()=>import('./views/orders/ViewOrderDetails/View_Order_Details'));
+
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
@@ -78,7 +98,39 @@ const routes = [
   { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
-  { path: '/users/:id', exact: true, name: 'User Details', component: User }
+  { path: '/users/:id', exact: true, name: 'User Details', component: User },
+
+  { path: '/categories', name: 'Categories', component: AllCategories, exact: true },
+  { path: '/categories/add-new-category', name: 'Add New Category', component: AddNewCategory },
+  { path: '/categories/all-categories', name: 'All Categories', component: AllCategories },
+
+  {path: '/categories/edit_category/:id', name:'Edit category', component:EditCategory},
+
+
+  
+  { path: '/products', name: 'Products', component: AllProducts, exact: true },
+  { path: '/products/add-new-product', name: 'Add New Product', component: AddNewProduct },
+  { path: '/products/all-products', name: 'All Products', component: AllProducts },
+
+  {path: '/products/edit_product/:id', name:'Edit product', component:EditProduct},
+
+  
+
+  
+  { path: '/orders', name: 'Orders', component: AllOrders, exact: true },
+  { path: '/orders/update-order-status', name: 'Update order status', component: UpdateOrderStatus },
+  { path: '/orders/all-orders', name: 'All Orders', component: AllOrders },
+  { path: '/orders/change-min-value', name: 'Change minimum cart value', component: ChangeMinValue },
+
+  {path: '/orders/edit_order/:id', name:'Edit order', component:EditOrder},
+  
+  {path: '/orders/view_order_details/:id', name:'View Order Details', component:ViewOrderDetails},
+  
+  
 ];
+
+
+
+
 
 export default routes;
